@@ -10,22 +10,21 @@
   </head>
   <body>
       <h2>Email Signature Generator</h2>
-      <div>First Name</div>
+      <div class="fieldContainer">
+      <div class="fieldLabel">First Name</div>
       <input id="firstNameInput" onkeyup='document.getElementById("firstNameHtml").textContent = this.value'>
-      <div>Last Name</div>
+      <div class="fieldLabel">Last Name</div>
       <input id="lastNameInput" onkeyup='if(this.value.toLowerCase() == "holligan") {document.getElementById("lastNameHtml").textContent = "Nguyen"} else {document.getElementById("lastNameHtml").textContent = this.value}'>
-      <div>Role</div>
+      <div class="fieldLabel">Role</div>
       <input id="roleInput" onkeyup='document.getElementById("roleHtml").textContent = this.value'>
-      <div>Team</div>
+      <div class="fieldLabel">Team</div>
       <input id="teamInput" onkeyup='document.getElementById("teamHtml").textContent = this.value'>
-      <div>Telephone Number</div>
+      <div class="fieldLabel">Telephone Number</div>
       <input id="telephoneInput" class="phone_us" onkeyup='document.getElementById("phoneHtml").textContent = this.value'>
-      <div>Mobile</div>
+      <div class="fieldLabel">Mobile</div>
       <input id="mobileInput" class="phone_us" onkeyup='document.getElementById("mobileHtml").textContent = this.value'>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
+      </div>
+
       <p>
         Copy the text below and paste it into your Outlook signature:
       </p>

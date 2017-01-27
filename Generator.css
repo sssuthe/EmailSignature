@@ -16,3 +16,11 @@ body {
 .greyText {
     color: #68707A;
 }
+
+.fieldContainer{
+    padding: 0 0 20 0;
+}
+
+.fieldLabel{
+    margin-top: 10px;
+}
