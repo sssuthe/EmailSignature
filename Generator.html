@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Email Signature Generator</title>
+    <link rel="stylesheet" href="Generator.css">
+      <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+      <script src="jquery.mask.min.js"></script>
+  </head>
+  <body>
+      <h2>Email Signature Generator</h2>
+      <div>First Name</div>
+      <input id="firstNameInput" onkeyup='document.getElementById("firstNameHtml").textContent = this.value'>
+      <div>Last Name</div>
+      <input id="lastNameInput" onkeyup='if(this.value.toLowerCase() == "holligan") {document.getElementById("lastNameHtml").textContent = "Nguyen"} else {document.getElementById("lastNameHtml").textContent = this.value}'>
+      <div>Role</div>
+      <input id="roleInput" onkeyup='document.getElementById("roleHtml").textContent = this.value'>
+      <div>Team</div>
+      <input id="teamInput" onkeyup='document.getElementById("teamHtml").textContent = this.value'>
+      <div>Telephone Number</div>
+      <input id="telephoneInput" class="phone_us" onkeyup='document.getElementById("phoneHtml").textContent = this.value'>
+      <div>Mobile</div>
+      <input id="mobileInput" class="phone_us" onkeyup='document.getElementById("mobileHtml").textContent = this.value'>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <p>
+        Copy the text below and paste it into your Outlook signature:
+      </p>
+      <br/>
+      
+      <div style="color:rgb(255,113,16);font-family:'Calibri';font-size:11pt;">
+          <span id="firstNameHtml">Rebecca</span> <span id="lastNameHtml">McNeal</span>
+      </div>
+        <div style="color:rgb(255,113,16);font-family:'Calibri';font-size:11pt;">
+          <span id="roleHtml">Team Lead</span>, <span id="teamHtml">IST Provisioning</span>
+      </div>
+      <br/>
+      <div style="color:rgb(108,110,113);font-family:'Calibri';font-size:11pt;">
+          T <span id="phoneHtml">719-325-3652</span> | M <span id="mobileHtml">719-964-4350</span>
+      </div>
+      <div style="color:rgb(108,110,113);font-family:'Calibri';font-size:11pt;">
+          ReadyTalk, a PGi Company | 1900 16th Street, Suite 600 | Denver, CO 80202
+      </div>
+      
+      <script>
+      $(document).ready(function(){
+  $('.phone_us').mask('(000) 000-0000');
+});
+      </script>
+      
+  </body>
+</html>

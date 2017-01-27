@@ -1,0 +1,18 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+    color: rgb(108,110,113);
+}
+
+.container {
+    font-family: 'Calibri';
+    font-size: 11pt;
+
+}
+
+.orangeText {
+    color: rgb(255,113,16);
+}
+
+.greyText {
+    color: #68707A;
+}
