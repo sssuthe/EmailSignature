@@ -19,7 +19,7 @@
       <div class="fieldLabel">Telephone Number</div>
       <input id="telephoneInput" class="phone_us" onkeyup='document.getElementById("phoneHtml").textContent = this.value'>
       <div class="fieldLabel">Mobile</div>
-      <input id="mobileInput" class="phone_us" onkeyup='document.getElementById("mobileHtml").textContent = this.value'>
+      <input id="mobileInput" class="phone_us" onkeyup="mobileKeyup()">
       </div>
 
       <p>
@@ -35,16 +35,31 @@
       </div>
       <br/>
       <div style="color:rgb(108,110,113);font-family:'Calibri';font-size:11pt;">
-          T <span id="phoneHtml">719-325-3652</span> | M <span id="mobileHtml">719-964-4350</span>
+          T <span id="phoneHtml">719-325-3652</span><span id="mobileSeparator"></span><span id="mobileHtml"></span>
       </div>
       <div style="color:rgb(108,110,113);font-family:'Calibri';font-size:11pt;">
           ReadyTalk, a PGi Company | 1900 16th Street, Suite 600 | Denver, CO 80202
       </div>
       
       <script>
-      $(document).ready(function(){
-  $('.phone_us').mask('(000) 000-0000');
-});
+          //Phone masking
+          $(document).ready(function(){
+           $('.phone_us').mask('(000) 000-0000');
+          });
+          
+          //handles when people don't enter mobile numbers
+          function mobileKeyup() {
+          var x = document.getElementById("mobileInput").value;
+          document.getElementById("mobileHtml").innerHTML = x;
+              
+          if (x.length < 1)
+          {
+             document.getElementById("mobileSeparator").innerHTML = "";
+          }
+          else {
+             document.getElementById("mobileSeparator").innerHTML = " | M ";
+          }
+        }
       </script>
       
   </body>
