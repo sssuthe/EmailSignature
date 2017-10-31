@@ -11,22 +11,22 @@
       <h2>Email Signature Generator</h2>
       <div class="fieldContainer">
       <div class="fieldLabel">First Name</div>
-      <input id="firstNameInput" onkeyup='document.getElementById("firstNameHtml").textContent = this.value'>
+      <input id="firstNameInput" onkeyup='document.getElementById("firstNameHtml").textContent = this.value;document.getElementById("firstNameHtmlRT").textContent = this.value'>
       <div class="fieldLabel">Last Name</div>
-      <input id="lastNameInput" onkeyup='if(this.value.toLowerCase() == "holligan") {document.getElementById("lastNameHtml").textContent = "Nguyen"} else {document.getElementById("lastNameHtml").textContent = this.value}'>
+      <input id="lastNameInput" onkeyup='if(this.value.toLowerCase() == "holligan") {document.getElementById("lastNameHtml").textContent = "Nguyen"} else {document.getElementById("lastNameHtml").textContent = this.value;document.getElementById("lastNameHtmlRT").textContent = this.value}'>
       <div class="fieldLabel">Role, Team</div>
-      <input id="roleInput" onkeyup='document.getElementById("roleHtml").textContent = this.value'>
+      <input id="roleInput" onkeyup='document.getElementById("roleHtml").textContent = this.value;document.getElementById("roleHtmlRT").textContent = this.value'>
       <div class="fieldLabel">Telephone Number</div>
-      <input id="telephoneInput" class="phone_us" onkeyup='document.getElementById("phoneHtml").textContent = this.value'>
+      <input id="telephoneInput" class="phone_us" onkeyup='document.getElementById("phoneHtml").textContent = this.value;document.getElementById("phoneHtmlRT").textContent = this.value'>
       <div class="fieldLabel">Mobile</div>
       <input id="mobileInput" class="phone_us" onkeyup="mobileKeyup()">
       </div>
 
       <p>
-        Copy the text below and paste it into your Outlook signature:
+        Copy the PGi signature text below and paste it into your Outlook signature:
       </p>
       <br/>
-      
+
       <div style="color:rgb(255,113,16);font-family:'Calibri';font-size:11pt;">
           <span id="firstNameHtml">Rebecca</span> <span id="lastNameHtml">McNeal</span>
       </div>
@@ -40,27 +40,56 @@
       <div style="color:rgb(108,110,113);font-family:'Calibri';font-size:11pt;">
           ReadyTalk, a PGi Company | 1900 16th Street, Suite 600 | Denver, CO 80202
       </div>
-      
+      <br/>
+      <br/>
+      <p>
+        Or...
+      </p>
+      <br/>
+
+      <p>
+        Copy the ReadyTalk signature text below and paste it into your Outlook signature:
+      </p>
+      <br/>
+
+      <div style="color:rgb(111,191,74);font-family:'Calibri';font-size:11pt;">
+          <span id="firstNameHtmlRT">Rebecca</span> <span id="lastNameHtmlRT">McNeal</span>
+      </div>
+        <div style="color:rgb(111,191,74);font-family:'Calibri';font-size:11pt;">
+          <span id="roleHtmlRT">Team Lead</span>
+      </div>
+      <br/>
+      <div style="color:rgb(108,110,113);font-family:'Calibri';font-size:11pt;">
+          T <span id="phoneHtmlRT">719-325-3652</span><span id="mobileSeparatorRT"></span><span id="mobileHtmlRT"></span>
+      </div>
+      <div style="color:rgb(108,110,113);font-family:'Calibri';font-size:11pt;">
+          ReadyTalk | 1900 16th Street, Suite 600 | Denver, CO 80202
+      </div>
+
       <script>
           //Phone masking
           $(document).ready(function(){
            $('.phone_us').mask('(000) 000-0000');
           });
-          
+
           //handles when people don't enter mobile numbers
           function mobileKeyup() {
           var x = document.getElementById("mobileInput").value;
+
           document.getElementById("mobileHtml").innerHTML = x;
-              
+          document.getElementById("mobileHtmlRT").innerHTML = x;
+
           if (x.length < 1)
           {
              document.getElementById("mobileSeparator").innerHTML = "";
+             document.getElementById("mobileSeparatorRT").innerHTML = "";
           }
           else {
              document.getElementById("mobileSeparator").innerHTML = " | M ";
+             document.getElementById("mobileSeparatorRT").innerHTML = " | M ";
           }
         }
       </script>
-      
+
   </body>
 </html>
