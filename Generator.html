@@ -11,35 +11,36 @@
       <h2>Email Signature Generator</h2>
       <div class="fieldContainer">
       <div class="fieldLabel">First Name</div>
-      <input id="firstNameInput" onkeyup='document.getElementById("firstNameHtml").textContent = this.value;document.getElementById("firstNameHtmlRT").textContent = this.value'>
+      <input id="firstNameInput" onkeyup="updateSigValue(this.value, 'firstName')">
       <div class="fieldLabel">Last Name</div>
-      <input id="lastNameInput" onkeyup='if(this.value.toLowerCase() == "holligan") {document.getElementById("lastNameHtml").textContent = "Nguyen"} else {document.getElementById("lastNameHtml").textContent = this.value;document.getElementById("lastNameHtmlRT").textContent = this.value}'>
+      <input id="lastNameInput" onkeyup="updateSigValue(this.value, 'lastName')">
       <div class="fieldLabel">Role, Team</div>
-      <input id="roleInput" onkeyup='document.getElementById("roleHtml").textContent = this.value;document.getElementById("roleHtmlRT").textContent = this.value'>
+      <input id="roleInput" onkeyup="updateSigValue(this.value, 'role')">
       <div class="fieldLabel">Telephone Number</div>
-      <input id="telephoneInput" class="phone_us" onkeyup='document.getElementById("phoneHtml").textContent = this.value;document.getElementById("phoneHtmlRT").textContent = this.value'>
+      <input id="telephoneInput" class="phone_us" onkeyup="updateSigValue(this.value, 'phone')">
       <div class="fieldLabel">Mobile</div>
       <input id="mobileInput" class="phone_us" onkeyup="mobileKeyup()">
       </div>
 
       <p>
-        Copy the PGi signature text below and paste it into your Outlook signature:
+        Copy the ReadyTalk signature text below and paste it into your Outlook signature:
       </p>
       <br/>
 
-      <div style="color:rgb(255,113,16);font-family:'Calibri';font-size:11pt;">
-          <span id="firstNameHtml">Rebecca</span> <span id="lastNameHtml">McNeal</span>
+      <div style="color:rgb(111,191,74);font-family:'Calibri';font-size:11pt;">
+          <span id="firstNameHtmlRT" class="firstName">Rebecca</span> <span id="lastNameHtmlRT" class="lastName">McNeal</span>
       </div>
-        <div style="color:rgb(255,113,16);font-family:'Calibri';font-size:11pt;">
-          <span id="roleHtml">Team Lead</span>
+        <div style="color:rgb(111,191,74);font-family:'Calibri';font-size:11pt;">
+          <span id="roleHtmlRT" class="role">Team Lead</span>
       </div>
       <br/>
       <div style="color:rgb(108,110,113);font-family:'Calibri';font-size:11pt;">
-          T <span id="phoneHtml">719-325-3652</span><span id="mobileSeparator"></span><span id="mobileHtml"></span>
+          T <span id="phoneHtmlRT" class="phone">719-325-3652</span><span id="mobileSeparatorRT"></span><span id="mobileHtmlRT" class="mobile"></span>
       </div>
       <div style="color:rgb(108,110,113);font-family:'Calibri';font-size:11pt;">
-          ReadyTalk, a PGi Company | 1900 16th Street, Suite 600 | Denver, CO 80202
+          ReadyTalk | 1900 16th Street, Suite 600 | Denver, CO 80202
       </div>
+
       <br/>
       <br/>
       <p>
@@ -48,23 +49,24 @@
       <br/>
 
       <p>
-        Copy the ReadyTalk signature text below and paste it into your Outlook signature:
+        Copy the PGi signature text below and paste it into your Outlook signature:
       </p>
       <br/>
 
-      <div style="color:rgb(111,191,74);font-family:'Calibri';font-size:11pt;">
-          <span id="firstNameHtmlRT">Rebecca</span> <span id="lastNameHtmlRT">McNeal</span>
+      <div style="color:rgb(255,113,16);font-family:'Calibri';font-size:11pt;">
+          <span id="firstNameHtml" class="firstName">Rebecca</span> <span id="lastNameHtml" class="lastName">McNeal</span>
       </div>
-        <div style="color:rgb(111,191,74);font-family:'Calibri';font-size:11pt;">
-          <span id="roleHtmlRT">Team Lead</span>
+        <div style="color:rgb(255,113,16);font-family:'Calibri';font-size:11pt;">
+          <span id="roleHtml" class="role">Team Lead</span>
       </div>
       <br/>
       <div style="color:rgb(108,110,113);font-family:'Calibri';font-size:11pt;">
-          T <span id="phoneHtmlRT">719-325-3652</span><span id="mobileSeparatorRT"></span><span id="mobileHtmlRT"></span>
+          T <span id="phoneHtml" class="phone">719-325-3652</span><span id="mobileSeparator"></span><span id="mobileHtml" class="mobile"></span>
       </div>
       <div style="color:rgb(108,110,113);font-family:'Calibri';font-size:11pt;">
-          ReadyTalk | 1900 16th Street, Suite 600 | Denver, CO 80202
+          ReadyTalk, a PGi Company | 1900 16th Street, Suite 600 | Denver, CO 80202
       </div>
+
 
       <script>
           //Phone masking
@@ -87,6 +89,46 @@
           else {
              document.getElementById("mobileSeparator").innerHTML = " | M ";
              document.getElementById("mobileSeparatorRT").innerHTML = " | M ";
+          }
+        }
+
+        function updateSigValue(val, dataItem) {
+          switch(dataItem) {
+            case 'firstName':
+              var firstNameNodes = document.getElementsByClassName("firstName");
+              for (i = 0; i < firstNameNodes.length; ++i)
+              {
+                firstNameNodes[i].textContent = val;
+              }
+              break;
+            case 'lastName':
+              var lastNameNodes = document.getElementsByClassName("lastName");
+              for (i = 0; i < lastNameNodes.length; ++i)
+              {
+                lastNameNodes[i].textContent = val;
+              }
+              break;
+              case 'role':
+                var roleNodes = document.getElementsByClassName("role");
+                for (i = 0; i < roleNodes.length; ++i)
+                {
+                  roleNodes[i].textContent = val;
+                }
+              break;
+              case 'phone':
+                var phoneNodes = document.getElementsByClassName("phone");
+                for (i = 0; i < phoneNodes.length; ++i)
+                {
+                  phoneNodes[i].textContent = val;
+                }
+                break;
+                case 'mobile':
+                  var mobileNodes = document.getElementsByClassName("mobile");
+                    for (i = 0; i < mobileNodes.length; ++i)
+                    {
+                      mobileNodes[i].textContent = val;
+                    }
+                break;
           }
         }
       </script>
